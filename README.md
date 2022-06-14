@@ -104,7 +104,8 @@
 > 此指令用于私人订阅 <br>与订阅指令不同之处 你订阅的某个内容更新时 机器人会主动@你
 
 
-相关文档：<a href="https://www.yuque.com/kingprimes/twgbot">语雀</a>
+相关文档：<a href="https://www.yuque.com/kingprimes/twgbot">语雀</a><br>
+如果对你有帮助还请支持一下作者<a href="https://afdian.net/@KingPrimes">爱发电</a>
 
 Thanks
 ---
