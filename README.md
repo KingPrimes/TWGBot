@@ -1,8 +1,8 @@
 <div align="center">
 <img src = ".github/logo.png" width="280" height="280" alt="TWGBot"/><br>
 项目编写于2020年8月12日
-该项目以<a href="https://gitee.com/y_project/RuoYi-Vue">若依框架</a>为基础开发<br>
-使用 <a href="https://github.com/MisakaTAT/Shiro">Shiro</a> OneBot协议的QQ机器人快速开发框架
+该项目以<a href="https://gitee.com/y_project/RuoYi-Vue" target="_blank">若依框架</a>为基础开发<br>
+使用 <a href="https://github.com/MisakaTAT/Shiro" target="_blank">Shiro</a> OneBot协议的QQ机器人快速开发框架
 
 ![](https://img.shields.io/badge/JDK-1.8+-brightgreen)
 ![](https://img.shields.io/badge/MySql-8.5-green)
@@ -79,14 +79,14 @@
 > **紫卡倾向变动**<br>
 
 > 查询指令用法介绍 <br>
-> **/WM** 从 <a href="https://warframe.market/">Warframe.Market</a> 上查询物品的售价<br>
+> **/WM** 从 <a href="https://warframe.market/" target="_blank">Warframe.Market</a> 上查询物品的售价<br>
 > 例如： /wm 充沛 满级、/wm ash、/wm 牛、/wm 压迫点 满级 买家 <br><br>
 > **/WiKI** 拼接 <a href="https://warframe.huijiwiki.com/">灰机Wiki</a> 的搜索链接 <br><br>
-> **/WR** | **/ZKWM** 从 <a href="https://warframe.market/">Warframe.Market</a> 上查询紫卡的售价<br>
+> **/WR** | **/ZKWM** 从 <a href="https://warframe.market/" target="_blank">Warframe.Market</a> 上查询紫卡的售价<br>
 > 例如： /wr 绝路、/wr 拉托 -爆率,多重 -有|无 <br><br>
-> **/CD** | **/C** 从 <a href="https://warframe.market/">Warframe.Market</a> 上查询赤毒武器的售价<br>
+> **/CD** | **/C** 从 <a href="https://warframe.market/" target="_blank">Warframe.Market</a> 上查询赤毒武器的售价<br>
 > 例如：/CD 沙皇、/C 沙皇 <br><br>
-> **/XT** | **/X** 从 <a href="https://warframe.market/">Warframe.Market</a> 上查询信条武器的售价<br>
+> **/XT** | **/X** 从 <a href="https://warframe.market/" target="_blank">Warframe.Market</a> 上查询信条武器的售价<br>
 > 例如：/XT 弧电、 /X 弧电
 
 > 订阅指令<br>
@@ -104,12 +104,12 @@
 > 此指令用于私人订阅 <br>与订阅指令不同之处 你订阅的某个内容更新时 机器人会主动@你
 
 
-相关文档：<a href="https://www.yuque.com/kingprimes/twgbot">语雀</a><br>
-如果对你有帮助还请支持一下作者<a href="https://afdian.net/@KingPrimes">爱发电</a>
+相关文档：<a href="https://www.yuque.com/kingprimes/twgbot" target="_blank">语雀</a><br>
+如果对你有帮助还请支持一下作者<a href="https://afdian.net/@KingPrimes" target="_blank">爱发电</a>
 
 Thanks
 ---
-Thanks <a href="https://www.jetbrains.com/?from=TWGBot" rel="nofollow">JetBrains</a> Provide Free License Support
-OpenSource Project
+Thanks <a href="https://www.jetbrains.com/?from=TWGBot" rel="nofollow" target="_blank">JetBrains</a> Provide Free
+License Support OpenSource Project
 
 <img src="https://camo.githubusercontent.com/5816b4341e77865c19606305fd5d007098f269e38b92dae5ce93191b45e20af8/68747470733a2f2f6d696b7561632e636f6d2f696d616765732f6a6574627261696e732d76617269616e742d332e706e67" width="200" data-canonical-src="https://mikuac.com/images/jetbrains-variant-3.png" style="max-width: 100%;">
