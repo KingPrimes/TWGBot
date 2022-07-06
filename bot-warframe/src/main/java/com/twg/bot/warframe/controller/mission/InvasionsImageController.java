@@ -37,7 +37,7 @@ public class InvasionsImageController {
     private RedisCache redisCache;
 
     @IgnoreAuth
-    @GetMapping(value = "/getInvasionsImage")
+    @GetMapping(value = "/{uuid}/getInvasionsImage")
     public void getImage(HttpServletResponse response) throws IOException {
         response.setHeader("Content-Type", "image/png");
         BufferedImage image = ImageUtils.getImage("/images/invasions/invasion.png");

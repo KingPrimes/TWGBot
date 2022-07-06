@@ -1,13 +1,14 @@
 package com.twg;
 
+import com.twg.bot.utils.GetProxyOnClons;
 import com.twg.bot.warframe.socket.OkHttpWebSocket;
+import com.twg.common.load.LoadConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import static com.twg.bot.utils.GetProxyOnClons.isHttpProxy;
-import static com.twg.bot.utils.GetProxyOnClons.isSocketProxy;
+import java.io.IOException;
 
 
 /**
@@ -18,10 +19,14 @@ import static com.twg.bot.utils.GetProxyOnClons.isSocketProxy;
 @EnableAsync
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class TWGApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        if (!new LoadConfig().WriteConfigFile()) {
+            return;
+        }
+        LoadConfig.initConfig();
         SpringApplication.run(TWGApplication.class, args);
-        isHttpProxy();
-        isSocketProxy();
+        GetProxyOnClons.isHttpProxy();
+        GetProxyOnClons.isSocketProxy();
         OkHttpWebSocket.init();
         System.out.println("启动成功！");
     }

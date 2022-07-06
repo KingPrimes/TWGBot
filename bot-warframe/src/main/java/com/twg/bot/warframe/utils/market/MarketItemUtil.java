@@ -21,6 +21,7 @@ import com.twg.bot.warframe.domain.market.WarframeMarketItemsRegular;
 import com.twg.bot.warframe.service.IWarframeAliasService;
 import com.twg.bot.warframe.service.IWarframeMarketItemsService;
 import com.twg.bot.warframe.utils.WarframeStringUtils;
+import com.twg.common.load.LoadConfig;
 import com.twg.common.utils.StringUtils;
 import com.twg.common.utils.http.HttpUtils;
 import com.twg.common.utils.ip.GetServerPort;
@@ -210,7 +211,9 @@ public class MarketItemUtil {
      * 给管理员发送可能恶意使用指令的消息
      */
     private static void toErrMsg(@NotNull Bot bot, @NotNull GroupMessageEvent event) {
-        bot.sendPrivateMsg(ADMIN_QQ.getL(), StringUtils.format("昵称:{}\n{}:在查询" + event.getRawMessage() + "时没有查询到物品\n群号:{}", PrivateAddApi.getPrivateNick(event.getUserId()), event.getUserId(), event.getGroupId()), false);
+        long admin = new LoadConfig().getAdmin();
+        if (admin != 0)
+            bot.sendPrivateMsg(admin, StringUtils.format("昵称:{}\n{}:在查询" + event.getRawMessage() + "时没有查询到物品\n群号:{}", PrivateAddApi.getPrivateNick(event.getUserId()), event.getUserId(), event.getGroupId()), false);
     }
 
     /**

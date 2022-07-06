@@ -20,6 +20,7 @@ import com.twg.bot.warframe.utils.market.MarketItemUtil;
 import com.twg.bot.warframe.utils.market.MarketLichAndSisterUtil;
 import com.twg.bot.warframe.utils.market.MarketRivenUtil;
 import com.twg.bot.warframe.utils.market.RenewMarketUtil;
+import com.twg.common.load.LoadConfig;
 import com.twg.common.utils.StringUtils;
 import com.twg.common.utils.ip.GetServerPort;
 import com.twg.common.utils.uuid.UUID;
@@ -304,7 +305,7 @@ public class WarframePlugin extends BotPlugin {
 
     @Override
     public int onPrivateMessage(@NotNull Bot bot, @NotNull PrivateMessageEvent event) {
-        if (event.getUserId() == ADMIN_QQ.getL()) {
+        if (event.getUserId() == new LoadConfig().getAdmin()) {
             if (TYPE_RES_MARKET_ITEMS.getType().equals(event.getRawMessage())) {
                 int x = RenewMarketUtil.resMarketItems();
                 bot.sendPrivateMsg(event.getUserId(), "更新成功，共更新" + x + "条数据!", false);

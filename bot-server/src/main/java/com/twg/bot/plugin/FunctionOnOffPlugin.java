@@ -38,10 +38,7 @@ public class FunctionOnOffPlugin extends BotPlugin {
                 }
                 return MESSAGE_BLOCK;
             } else {
-                Msg.builder()
-                        .text("Hello")
-                        .sendToGroup(bot, event);
-
+                Msg.builder().text("没有权限！").sendToGroup(bot, event);
                 return MESSAGE_BLOCK;
             }
         }
