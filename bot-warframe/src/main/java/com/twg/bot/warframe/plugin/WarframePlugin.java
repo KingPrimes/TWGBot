@@ -323,7 +323,7 @@ public class WarframePlugin extends BotPlugin {
                 bot.sendPrivateMsg(event.getUserId(), msg.build(), false);
             }
             if (TYPE_CODE.getType().equals(event.getRawMessage())) {
-                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n授权+群号+天数\n加授权+群号+天数\n更新群信息", false);
+                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n更新信条", false);
             }
 
         }

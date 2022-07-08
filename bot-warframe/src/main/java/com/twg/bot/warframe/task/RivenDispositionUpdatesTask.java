@@ -33,7 +33,8 @@ public class RivenDispositionUpdatesTask {
         try {
             //获取之前的缓存
             redis_trends = SpringUtils.getBean(RedisCache.class).getCacheList("renew-riven-disposition");
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            System.out.println("更新紫卡倾向失败：" + e.getMessage());
         }
 
         List<WarframeRivenTrend> image = new ArrayList<>();
