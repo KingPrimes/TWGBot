@@ -37,6 +37,10 @@ public class RivenDispositionUpdatesController {
             List<WarframeRivenTrend> trends;
             try {
                 trends = redisCache.getCacheList("renew-riven-disposition");
+                if (trends.size() == 0) {
+                    new RivenDispositionUpdatesTask().renewRivenDisposition();
+                    trends = redisCache.getCacheList("renew-riven-disposition");
+                }
                 List<WarframeRivenTrend> image = new ArrayList<>();
                 for (WarframeRivenTrend trend : trends) {
                     trend.setTraCh(SpringUtils.getBean(IWarframeTranslationService.class).enToZh(trend.getRivenTrendName()));
@@ -48,7 +52,7 @@ public class RivenDispositionUpdatesController {
                 response.getOutputStream().write(FileUtils.toByteArray3("./renew-riven-disposition.jpg"));
             } catch (Exception exception) {
                 //如果Redis中没有缓存则获取缓存
-                new RivenDispositionUpdatesTask().renewRivenDisposition("");
+                new RivenDispositionUpdatesTask().renewRivenDisposition();
             }
         }
     }

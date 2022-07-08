@@ -47,6 +47,18 @@ logging:
 
 # Spring配置
 spring:
+  task:
+    scheduling:
+      shutdown:
+        await-termination: false
+    execution:
+      pool:
+        allow-core-thread-timeout: true
+        core-size: 8
+        keep-alive: 60s
+        max-size: 8
+        queue-capacity: 8
+
   # 资源信息
   messages:
     # 国际化资源文件路径
@@ -87,7 +99,6 @@ spring:
         max-active: 8
         # #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1ms
-
 
 # token配置
 token:

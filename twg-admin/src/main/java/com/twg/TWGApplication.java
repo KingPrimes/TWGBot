@@ -7,8 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableAsync;
-
-import java.io.IOException;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 /**
@@ -17,10 +16,12 @@ import java.io.IOException;
  * @author ruoyi
  */
 @EnableAsync
+@EnableScheduling
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class TWGApplication {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         if (!new LoadConfig().WriteConfigFile()) {
+            System.out.println("创建配置文件失败！");
             return;
         }
         LoadConfig.initConfig();
@@ -28,6 +29,9 @@ public class TWGApplication {
         GetProxyOnClons.isHttpProxy();
         GetProxyOnClons.isSocketProxy();
         OkHttpWebSocket.init();
+
         System.out.println("启动成功！");
     }
+
+
 }

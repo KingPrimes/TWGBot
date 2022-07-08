@@ -12,45 +12,46 @@ import com.twg.common.core.redis.RedisCache;
 import com.twg.common.utils.ListUtils;
 import com.twg.common.utils.ip.GetServerPort;
 import com.twg.common.utils.spring.SpringUtils;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("RivenDispositionUpdatesTask")
+@Component
 public class RivenDispositionUpdatesTask {
 
     /**
      * 更新紫卡倾向
      *
-     * @param url "Url论坛地址"
      * @return 更新的条数
      * @throws Exception 可能存在空异常
      */
-    public int renewRivenDisposition(String url) throws Exception {
-        List<WarframeRivenTrend> trends = GetForumsRivenDispositionUpdates.getRivenDispositionUpdates(url);
+    @Scheduled(cron = "0 0 0 * * ?")
+    public void renewRivenDisposition() throws Exception {
+        System.out.println("开始更新紫卡倾向");
+        List<WarframeRivenTrend> trends = GetForumsRivenDispositionUpdates.getRivenDispositionUpdates("");
         List<WarframeRivenTrend> redis_trends = new ArrayList<>();
         try {
             //获取之前的缓存
             redis_trends = SpringUtils.getBean(RedisCache.class).getCacheList("renew-riven-disposition");
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            System.out.println("更新紫卡倾向失败：" + e.getMessage());
         }
 
         List<WarframeRivenTrend> image = new ArrayList<>();
 
         //对比之前的缓存是否相等
         if (!ListUtils.equals(trends, redis_trends)) {
-            int i = 0;
             //遍历集合写入到数据库
             for (WarframeRivenTrend trend : trends) {
                 trend.setRivenTrendName(trend.getRivenTrendName().trim());
                 trend.setRivenTrendOldNum(trend.getRivenTrendOldNum().trim());
                 trend.setRivenTrendNewNum(trend.getRivenTrendNewNum().trim());
-                i += SpringUtils.getBean(IWarframeRivenTrendService.class).insertAndUpDateWarframeRivenTrend(trend);
+                SpringUtils.getBean(IWarframeRivenTrendService.class).insertAndUpDateWarframeRivenTrend(trend);
                 trend.setTraCh(SpringUtils.getBean(IWarframeTranslationService.class).enToZh(trend.getRivenTrendName()));
                 image.add(new WarframeRivenTrend(trend));
             }
-
             RivenDispositionUpdatesImage.getImage(image);
             try {
                 //删除之前的缓存
@@ -60,8 +61,6 @@ public class RivenDispositionUpdatesTask {
             //添加新的缓存
             SpringUtils.getBean(RedisCache.class).setCacheList("renew-riven-disposition", trends);
             SendAllGroup.sendAllGroup(Msg.builder().img("http://localhost:" + GetServerPort.getPort() + "/warframe/forums/riven/getNewsImage"), FunctionEnums.FUNCTION_WARFRAME);
-            return i;
         }
-        return 0;
     }
 }

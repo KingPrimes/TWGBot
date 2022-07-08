@@ -30,10 +30,4 @@ public class TestImageController {
         }
     }
 
-
-    @GetMapping("/getIssue")
-    public String getIssue() {
-        return service.selectIssueReplyBuMsgId(2).toString();
-    }
-
 }

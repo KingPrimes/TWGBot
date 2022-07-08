@@ -14,8 +14,10 @@ import com.twg.bot.utils.SelectGroupFunctionOnOff;
 import com.twg.bot.warframe.domain.subscribe.WarframeMissionSubscribe;
 import com.twg.bot.warframe.service.IWarframeMissionSubscribeService;
 import com.twg.bot.warframe.service.IWarframeTranslationService;
+import com.twg.bot.warframe.task.RivenDispositionUpdatesTask;
 import com.twg.bot.warframe.utils.WarframeDataUpdateMission;
 import com.twg.bot.warframe.utils.WarframeStringUtils;
+import com.twg.bot.warframe.utils.WarframeTraUtils;
 import com.twg.bot.warframe.utils.market.MarketItemUtil;
 import com.twg.bot.warframe.utils.market.MarketLichAndSisterUtil;
 import com.twg.bot.warframe.utils.market.MarketRivenUtil;
@@ -23,6 +25,7 @@ import com.twg.bot.warframe.utils.market.RenewMarketUtil;
 import com.twg.common.load.LoadConfig;
 import com.twg.common.utils.StringUtils;
 import com.twg.common.utils.ip.GetServerPort;
+import com.twg.common.utils.spring.SpringUtils;
 import com.twg.common.utils.uuid.UUID;
 import lombok.var;
 import org.jetbrains.annotations.NotNull;
@@ -314,6 +317,15 @@ public class WarframePlugin extends BotPlugin {
                 int x = RenewMarketUtil.resMarketRiven();
                 bot.sendPrivateMsg(event.getUserId(), "更新成功，共更新" + x + "条数据!", false);
             }
+            if ("更新紫卡倾向变动".equals(event.getRawMessage())) {
+                try {
+                    new RivenDispositionUpdatesTask().renewRivenDisposition();
+                    bot.sendPrivateMsg(event.getUserId(), "已执行请稍后，在群内使用 紫卡倾向变动查看", false);
+                    return 1;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if ("更新信条".equals(event.getRawMessage())) {
                 Msg msg = new Msg();
                 int[] i = RenewMarketUtil.resMarketSister();
@@ -322,8 +334,14 @@ public class WarframePlugin extends BotPlugin {
                         .build();
                 bot.sendPrivateMsg(event.getUserId(), msg.build(), false);
             }
+            if ("更新翻译".equals(event.getRawMessage())) {
+                bot.sendPrivateMsg(event.getUserId(), "正在准备更新", false);
+                int i = SpringUtils.getBean(WarframeTraUtils.class).getUserDict();
+                bot.sendPrivateMsg(event.getUserId(), "更新完成，共更新：" + i + "条数据", false);
+
+            }
             if (TYPE_CODE.getType().equals(event.getRawMessage())) {
-                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n授权+群号+天数\n加授权+群号+天数\n更新群信息", false);
+                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n更新信条", false);
             }
 
         }
