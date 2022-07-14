@@ -341,7 +341,7 @@ public class WarframePlugin extends BotPlugin {
 
             }
             if (TYPE_CODE.getType().equals(event.getRawMessage())) {
-                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n更新信条", false);
+                bot.sendPrivateMsg(event.getUserId(), "更新WM物品\n更新WM紫卡\n更新信条\n更新翻译\n更新紫卡倾向变动", false);
             }
 
         }

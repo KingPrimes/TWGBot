@@ -8,6 +8,7 @@ import com.twg.bot.warframe.service.IWarframeRivenTrendService;
 import com.twg.bot.warframe.service.IWarframeTranslationService;
 import com.twg.bot.warframe.utils.forums.GetForumsRivenDispositionUpdates;
 import com.twg.bot.warframe.utils.forums.RivenDispositionUpdatesImage;
+import com.twg.common.core.domain.AjaxResult;
 import com.twg.common.core.redis.RedisCache;
 import com.twg.common.utils.ListUtils;
 import com.twg.common.utils.ip.GetServerPort;
@@ -28,15 +29,15 @@ public class RivenDispositionUpdatesTask {
      * @throws Exception 可能存在空异常
      */
     @Scheduled(cron = "0 0 0 * * ?")
-    public void renewRivenDisposition() throws Exception {
-        System.out.println("开始更新紫卡倾向");
+    //@Log(title = "WarframeRivenDisposition",businessType = BusinessType.INSERT)
+    public AjaxResult renewRivenDisposition() throws Exception {
         List<WarframeRivenTrend> trends = GetForumsRivenDispositionUpdates.getRivenDispositionUpdates("");
-        List<WarframeRivenTrend> redis_trends = new ArrayList<>();
+        List<WarframeRivenTrend> redis_trends;
         try {
             //获取之前的缓存
             redis_trends = SpringUtils.getBean(RedisCache.class).getCacheList("renew-riven-disposition");
         } catch (Exception e) {
-            System.out.println("更新紫卡倾向失败：" + e.getMessage());
+            return AjaxResult.error("紫卡更新失败，错误信息：" + e.getMessage());
         }
 
         List<WarframeRivenTrend> image = new ArrayList<>();
@@ -62,5 +63,6 @@ public class RivenDispositionUpdatesTask {
             SpringUtils.getBean(RedisCache.class).setCacheList("renew-riven-disposition", trends);
             SendAllGroup.sendAllGroup(Msg.builder().img("http://localhost:" + GetServerPort.getPort() + "/warframe/forums/riven/getNewsImage"), FunctionEnums.FUNCTION_WARFRAME);
         }
+        return AjaxResult.success("紫卡更新完成");
     }
 }

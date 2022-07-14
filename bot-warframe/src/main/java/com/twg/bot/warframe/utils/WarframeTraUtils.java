@@ -13,8 +13,6 @@ import java.util.Set;
 
 @Component
 public class WarframeTraUtils {
-    //获取灰机Wiki的翻译词条
-    //https://warframe.huijiwiki.com/api.php?action=query&format=json&prop=revisions&titles=UserDict&formatversion=2&rvprop=content&rvlimit=1
 
     @Autowired
     WarframeTranslationServiceImpl translate;
