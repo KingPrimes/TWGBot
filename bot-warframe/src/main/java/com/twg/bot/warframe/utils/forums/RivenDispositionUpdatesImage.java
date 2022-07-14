@@ -19,6 +19,7 @@ public class RivenDispositionUpdatesImage {
 
     public static void getImage(List<WarframeRivenTrend> rt) throws Exception {
         List<Seat> seatList = new ArrayList<>();
+        System.out.println(rt.toString());
         BufferedImage image = ImageUtils.getImage("/images/riven-news.png");
         String text = "---本次紫卡倾向更新如下---";
         seatList.add(ImageUtils.getSeat(text, 575, 120, COLOR_MINOR, Fonts.FONT_SOURCE_CN_MEDIUM_BOLD));
