@@ -1,0 +1,6 @@
+com\twg\bot\imagetogif\controller\EmoSuptPngImageController.class
+com\twg\bot\imagetogif\controller\CapooGifImageController.class
+com\twg\bot\imagetogif\controller\EmailFunnyImageController.class
+com\twg\bot\imagetogif\plugin\GifImagePlugin.class
+com\twg\bot\imagetogif\controller\CapooTGifImageController.class
+com\twg\bot\imagetogif\utils\SendGifUtil.class
