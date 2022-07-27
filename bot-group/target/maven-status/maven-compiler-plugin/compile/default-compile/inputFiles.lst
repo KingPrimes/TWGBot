@@ -1,7 +1,0 @@
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\domain\OFFunGroup.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\mapper\OFFunGroupMapper.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\doa\GroupVerify.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\plugin\JoinGroupVerifyCodePlugin.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\redis\RedisKeyExpirationListener.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\service\impl\OFFunGroupImpl.java
-D:\Maven-Demo\TWGBot-Shiro-Sqlite\bot-group\src\main\java\com\twg\bot\group\service\IOFFunGroupService.java

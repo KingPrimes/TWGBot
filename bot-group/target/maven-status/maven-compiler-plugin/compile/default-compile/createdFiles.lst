@@ -1,7 +1,0 @@
-com\twg\bot\group\mapper\OFFunGroupMapper.class
-com\twg\bot\group\doa\GroupVerify.class
-com\twg\bot\group\service\IOFFunGroupService.class
-com\twg\bot\group\domain\OFFunGroup.class
-com\twg\bot\group\service\impl\OFFunGroupImpl.class
-com\twg\bot\group\plugin\JoinGroupVerifyCodePlugin.class
-com\twg\bot\group\redis\RedisKeyExpirationListener.class
