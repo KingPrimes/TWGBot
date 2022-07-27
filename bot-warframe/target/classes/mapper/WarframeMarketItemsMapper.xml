@@ -25,7 +25,7 @@
 
     <select id="selectWarframeMarketItemsByItemName" parameterType="String" resultMap="WarframeMarketItemsResult">
         <include refid="selectWarframeMarketItemsVo"/>
-        where UPPER(replace(item_name,' ','')) like UPPER(replace('%'||#{itemName}||'%',' ',''))
+        where UPPER(replace(item_name,' ','')) like UPPER(replace('%'||#{itemName}||'%',' ','')) LIMIT 1
     </select>
 
     <select id="selectWarframeMarketItemByItemNameToRegular"

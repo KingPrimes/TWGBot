@@ -22,7 +22,8 @@
     <select id="selectWarframeRivenTrendList" parameterType="WarframeRivenTrend" resultMap="WarframeRivenTrendResult">
         <include refid="selectWarframeRivenTrendVo"/>
         <where>
-            <if test="rivenTrendName != null  and rivenTrendName != ''">and riven_trend_name like '%'||#{rivenTrendName}||'%'
+            <if test="rivenTrendName != null  and rivenTrendName != ''">and riven_trend_name like
+                '%'||#{rivenTrendName}||'%'
             </if>
             <if test="traCh != null  and traCh != ''">and tra_ch like '%'||#{traCh}||'%'</if>
             <if test="rivenTrendOldNum != null  and rivenTrendOldNum != ''">and riven_trend_old_num =

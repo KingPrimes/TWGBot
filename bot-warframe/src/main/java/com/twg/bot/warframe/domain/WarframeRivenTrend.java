@@ -1,10 +1,10 @@
 package com.twg.bot.warframe.domain;
 
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
-import java.util.Objects;
 
 /**
  * 紫卡倾向
@@ -12,8 +12,10 @@ import java.util.Objects;
  * @author KingPrimes
  * @date 2021-06-02
  */
+
+@Data
+@EqualsAndHashCode(of = {"rivenTrendName", "rivenTrendOldNum", "rivenTrendNewNum"})
 public class WarframeRivenTrend {
-    private static final long serialVersionUID = 1L;
 
     private Long rivenTrendId;
 
@@ -129,15 +131,12 @@ public class WarframeRivenTrend {
         this.rivenTrendNewDot = rivenTrendNewDot;
     }
 
-    @Override
+  /*  @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof WarframeRivenTrend)) return false;
         WarframeRivenTrend trend = (WarframeRivenTrend) o;
-        return Objects.equals(getRivenTrendId(),
-                trend.getRivenTrendId())
-
-                && Objects.equals(getRivenTrendName(),
+        return Objects.equals(getRivenTrendName(),
                 trend.getRivenTrendName())
 
                 && Objects.equals(getRivenTrendOldNum(),
@@ -150,22 +149,21 @@ public class WarframeRivenTrend {
                 trend.getRivenTrendOldDot())
 
                 && Objects.equals(getRivenTrendNewDot(),
-                trend.getRivenTrendNewDot())
-
-                && Objects.equals(getTraCh(),
-                trend.getTraCh());
+                trend.getRivenTrendNewDot());
     }
-
+*/
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
                 .append("rivenTrendId", getRivenTrendId())
                 .append("rivenTrendName", getRivenTrendName())
                 .append("rivenTrendOldNum", getRivenTrendOldNum())
                 .append("rivenTrendNewNum", getRivenTrendNewNum())
                 .append("rivenTrendOldDot", getRivenTrendOldDot())
                 .append("rivenTrendNewDot", getRivenTrendNewDot())
+                .append("traCh", getTraCh())
+                .append("isDate", getIsDate())
                 .toString();
     }
 }
