@@ -61,7 +61,7 @@ public class WarframeMissionUtils {
         //判断每日特惠是否相同
         if (form.getDailyDeals() != null && redisForm.getDailyDeals() != null) {
             if (form.getDailyDeals().get(0).getItem() != null) {
-                if (!form.getDailyDeals().equals(redisForm.getDailyDeals())) {
+                if (!form.getDailyDeals().get(0).getItem().equals(redisForm.getDailyDeals().get(0).getItem())) {
                     new Thread(WarframeDataUpdateMission::updateDailyDeals).start();
                 }
             }
@@ -87,10 +87,10 @@ public class WarframeMissionUtils {
         //判断虚空商人是否相同
         if (form.getVoidTrader() != null && redisForm.getVoidTrader() != null) {
             if (!form.getVoidTrader().equals(redisForm.getVoidTrader())) {
-                if (form.getVoidTrader().getInventory().size() != 0 && form.getVoidTrader().getActive()) {
-                    new Thread(() -> WarframeDataUpdateMission.updateVoidTrader("奸商又来了！\n这次又带来了什么坏东西呢？\n奸商刺杀1等3")).start();
-                } else {
+                if (form.getVoidTrader().getInventory().size() == 0 && !form.getVoidTrader().getActive()) {
                     new Thread(() -> WarframeDataUpdateMission.updateVoidTrader("奸商走了！\n下次会带来什么好东西呢？")).start();
+                } else {
+                    new Thread(() -> WarframeDataUpdateMission.updateVoidTrader("奸商又来了！\n这次又带来了什么坏东西呢？\n奸商刺杀1等3")).start();
                 }
             }
         }
