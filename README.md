@@ -10,20 +10,41 @@
 
 </div>
 
-> 使用方法：<br>
-安装**Java JDK 1.8** <br>
-安装**MySql 8.5+** <br>
-安装**Redis 5.0+** <br>
-新建一个名为 **bot-server** 的数据库 编码为 **utf-8mb4** 排序规则为 **utf8mb4_0900_ai_ci**<br>
-> 导入 **sql/bot-server.sql** 文件 **到你新建的数据库中**
+> 服务器资源：<br>
+> <a href="https://cloud.tencent.com/act/free">腾讯云免费体验</a><br>
+> <a href="https://cloud.tencent.com/act/pro/cps_3?fromSource=gwzcw.6688284.6688284.6688284&cps_key=ae3b8b6e55495d8bc53f2227ea0273d8" target="_blank">
+> 腾讯云优惠</a><br>
+> <a href="https://www.aliyun.com/minisite/goods?userCode=8dt5pt0g&share_source=copy_link" target="_blank">阿里云优惠</a>
 
 
+> **使用方法：**<br>
+> 安装**Java JDK 1.8** <br>
+> 安装**MySql 8.5+** <br>
+> 安装**Redis 5.0+** <br>
+> 新建一个名为 **bot-server** 的数据库 编码为 **utf-8mb4** 排序规则为 **utf8mb4_0900_ai_ci**<br>
+> 导入 **sql/bot-server.sql** 文件 **到你新建的数据库中**<br>
 > 修改 **twg-admin/src/main/resources** 中的 **application-druid.yml** <br>
 > 主库数据源 下的 **master** <br>
 **username: 你的MySql用户名**<br>
-**password: 你的MySql密码**
-
+**password: 你的MySql密码**<br>
 > 修改 **src/main/java/com/twg/bot/enums/WarframeTypeEnum** 中的 **ADMIN_QQ(你的QQ账号)** <br>
+> 此分支将不在更新,请访问 <a href="https://github.com/KingPrimes/TWGBot/tree/TWGBot-Sqlite">TWGBot-Sqlite</a> 分支
+
+
+> **使用方法2-Sqlite：**<br>
+> 下载 <a href="https://github.com/KingPrimes/TWGBot/releases">Releases</a> 下的 v-***-Sqlite 包文件<br>
+> 1：首先解压缩文件，路径不要存在中文。<br>
+> 2：配置config.ini ，管理员QQ填写你自己的QQ账号。<br>
+> 3：双击安装.bat。<br>
+> 4：双击启动.bat ,启动完成之后会有两个黑窗口，如果只有一个或一个都没有，请手动打开 go-cqhttp.bat与TwgBot-Server.exe<br>
+> 5：初次启动需要扫码登陆你的QQ，在go-cqhttp这个黑窗口中会显示二维码，个人建议使用你的小号登陆！<br>
+> 6：登陆完成之后请等待几秒钟，在go-cqhttp黑窗口中显示 ”连接成功“ 那么恭喜您，已经成功部署了机器人。<br>
+
+<br><br>
+详细视频教程：<br>
+[![服务器选购与机器人部署教程](https://raw.githubusercontent.com/KingPrimes/TWGBot/TWGBot-Sqlite/.gethub/1.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "服务器选购与机器人部署教程")<br>
+[![Warframe机器人部署-更新补充](https://raw.githubusercontent.com/KingPrimes/TWGBot/TWGBot-Sqlite/.gethub/2.jpg)](https://www.bilibili.com/video/BV12B4y187da/ "Warframe机器人部署-更新补充")
+<br>
 
 ### Bot-Aiml
 
@@ -93,12 +114,12 @@
 > 使用订阅指令之前请发送 订阅列表查看对应的订阅内容<br>
 > **订阅/取消订阅**<br>
 > 此指令用于群订阅<br>
-在订阅指令后方加上 订阅列表中的数字<br>
-管理员/群主 可强制取消 订阅<br>
-如： 订阅 2<br>
-意为 ：订阅仲裁<br>
-取消订阅 2<br>
-意为 ： 取消订阅仲裁
+> 在订阅指令后方加上 订阅列表中的数字<br>
+> 管理员/群主 可强制取消 订阅<br>
+> 如： 订阅 2<br>
+> 意为 ：订阅仲裁<br>
+> 取消订阅 2<br>
+> 意为 ： 取消订阅仲裁
 > <br><br>
 > **私人订阅 / 取消私人订阅**
 > 此指令用于私人订阅 <br>与订阅指令不同之处 你订阅的某个内容更新时 机器人会主动@你
