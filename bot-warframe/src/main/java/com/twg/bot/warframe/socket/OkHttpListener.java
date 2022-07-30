@@ -29,8 +29,9 @@ public class OkHttpListener extends WebSocketListener {
         if (states != null) {
             if (!states.getEvent().equals("connected") && states.getEvent().equals("ws:update")) {
                 if (states.getPacket().getLanguage().equals("en") && states.getPacket().getPlatform().equals("pc")) {
+                    System.out.println(text);
                     new Thread(() -> WarframeMissionUtils.isUpdated(states)).start();
-                    ;
+
                 }
             }
         }

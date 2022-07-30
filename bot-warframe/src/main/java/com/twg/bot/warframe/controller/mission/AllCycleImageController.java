@@ -41,7 +41,7 @@ public class AllCycleImageController {
     public void getImage(HttpServletResponse response) throws Exception {
         response.setHeader("Content-Type", "image/png");
         ImageUtils imageUtils = new ImageUtils();
-        BufferedImage image = new ImageCombiner(imageUtils.reseauImage(400, 400), OutputFormat.PNG)
+        BufferedImage image = new ImageCombiner(imageUtils.reseauImage(400, 500), OutputFormat.PNG)
                 .setCanvasRoundCorner(40)
                 .combine();
         SocketGlobalStates sgs = redisCache.getCacheObject(REDIS_MISSION_KEY.getType());
@@ -54,6 +54,9 @@ public class AllCycleImageController {
         GlobalStates.VallisCycle vallisCycle = globalState.getVallisCycle();
         //魔胎之境
         GlobalStates.CambionCycle cambionCycle = globalState.getCambionCycle();
+        //扎里曼
+        GlobalStates.ZarimanCycle zarimanCycle = globalState.getZarimanCycle();
+
         //创建图片
         ImageCombiner combiner = new ImageCombiner(image, OutputFormat.PNG);
         //设置字体
@@ -164,6 +167,15 @@ public class AllCycleImageController {
             combiner.addImageElement(next, x, 360);
 
             combiner.addImageElement(p, 0, 390);
+        }
+        //扎里曼
+        {
+            combiner.addTextElement("----扎里曼----", tx, 400).setColor(COLOR_TEST.getColor());
+            combiner.addImageElement(now, x, 430);
+            combiner.addTextElement(zarimanCycle.getState().toUpperCase(Locale.ROOT), xd + 40, 430).setColor(COLOR_RIVEN_MOD.getColor());
+            combiner.addTextElement(DateUtils.getDate((zarimanCycle.getExpiry()), new Date()), xx, 460).setColor(COLOR_RIVEN_MOD.getColor());
+            combiner.addImageElement(next, x, 460);
+            combiner.addImageElement(p, 0, 490);
         }
         try {
             combiner.combine();

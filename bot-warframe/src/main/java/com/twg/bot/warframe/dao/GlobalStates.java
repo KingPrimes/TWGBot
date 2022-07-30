@@ -58,6 +58,10 @@ public class GlobalStates {
      */
     @JsonProperty("fissures")
     private List<Fissures> fissures;
+
+    @JsonProperty("globalUpgrades")
+    private List<GlobalUpgrades> globalUpgrades;
+
     /**
      * 入侵
      */
@@ -98,6 +102,11 @@ public class GlobalStates {
      */
     @JsonProperty("vallisCycle")
     private VallisCycle vallisCycle;
+    /**
+     * 扎里曼轮换
+     */
+    @JsonProperty("zarimanCycle")
+    private ZarimanCycle zarimanCycle;
     /**
      * 虚空商人
      */
@@ -142,6 +151,51 @@ public class GlobalStates {
         private Boolean active;
         @JsonProperty("startString")
         private String startString;
+    }
+
+    @NoArgsConstructor
+    @Data
+    @EqualsAndHashCode(of = {"start", "end", "upgrade"})
+    public static class GlobalUpgrades {
+
+        //开始时间
+        @JsonProperty("start")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date start;
+
+        //结束时间
+        @JsonProperty("end")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date end;
+
+        //加成类型
+        @JsonProperty("upgrade")
+        private String upgrade;
+
+        //加成方式 乘/加
+        @JsonProperty("operation")
+        private String operation;
+
+        //加成方式 x/+
+        @JsonProperty("operationSymbol")
+        private String operationSymbol;
+
+        //加成倍数
+        @JsonProperty("upgradeOperationValue")
+        private Integer upgradeOperationValue;
+
+        //是否关闭
+        @JsonProperty("expired")
+        private Boolean expired;
+
+        //结束时间
+        @JsonProperty("eta")
+        private String eta;
+
+        //具体字符串
+        @JsonProperty("desc")
+        private String desc;
+
     }
 
     @NoArgsConstructor
@@ -669,6 +723,38 @@ public class GlobalStates {
         private Boolean isWarm;
         @JsonProperty("state")
         private String state;
+    }
+
+    @NoArgsConstructor
+    @Data
+    @EqualsAndHashCode(of = {"isCorpus", "state"})
+    public static class ZarimanCycle {
+        @JsonProperty("id")
+        private String id;
+
+        @JsonProperty("activation")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date activation;
+
+        @JsonProperty("expiry")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date expiry;
+
+        @JsonProperty("bountiesEndDate")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date bountiesEndDate;
+
+        @JsonProperty("isCorpus")
+        private Boolean isCorpus;
+
+        @JsonProperty("state")
+        private String state;
+
+        @JsonProperty("timeLeft")
+        private String timeLeft;
+
+        @JsonProperty("shortString")
+        private String shortString;
     }
 
     @NoArgsConstructor

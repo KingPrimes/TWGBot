@@ -36,6 +36,16 @@ public class VoidImageController {
     @Autowired
     private IWarframeTranslationService trans;
 
+    private static int getStringMaxLength(GlobalStates.VoidTrader v) {
+        int maxLen = 0;
+        for (GlobalStates.VoidTrader.Inventory i : v.getInventory()) {
+            if (i.getItem().length() > maxLen) {
+                maxLen = i.getItem().length();
+            }
+        }
+        return maxLen;
+    }
+
     @IgnoreAuth
     @GetMapping(value = "/{uuid}/getVoidImage")
     public void getImage(HttpServletResponse response) throws IOException {
@@ -57,12 +67,20 @@ public class VoidImageController {
             seatList.add(ImageUtils.getSeat("距离虚空商人到来:", 62, 110));
             seatList.add(ImageUtils.getSeat(DateUtils.getDate(v.getActivation(), new Date()), 62 + ImageUtils.getFortWidth("距离虚空商人到来:"), 110, COLOR_NODE));
         } else {
-            bufferedImage = ImageUtils.getImage("/images/backimg.png");
+            BufferedImage backImage = ImageUtils.getImage("/images/backimg.png");
+            int h = v.getInventory().size() * 30;
+            h += 120;
+            assert backImage != null;
+            int maxLen = getStringMaxLength(v) * 16;
+            int sW = maxLen + 362;
+            int w = Math.max(backImage.getWidth(), sW);
+            int itmeLen = Math.max(460, maxLen);
+            bufferedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
             int x = 62;
             int y = 70;
             for (GlobalStates.VoidTrader.Inventory i : v.getInventory()) {
                 seatList.add(ImageUtils.getSeat("[ " + trans.enToZh(i.getItem()) + " ]", x, y, COLOR_NODE));
-                x += 460;
+                x += itmeLen;
                 seatList.add(ImageUtils.getSeat(i.getCredits() / 1000 + "k", x, y));
                 x += 68;
                 seatList.add(new Seat("/images/void/Credits.png", x, y));
