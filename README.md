@@ -18,19 +18,17 @@
 > 5：初次启动需要扫码登陆你的QQ，在go-cqhttp这个黑窗口中会显示二维码，个人建议使用你的小号登陆！<br>
 > 6：登陆完成之后请等待几秒钟，在go-cqhttp黑窗口中显示 ”连接成功“ 那么恭喜您，已经成功部署了机器人。<br>
 
->
+
 > 服务器资源：<br>
 > <a href="https://cloud.tencent.com/act/free">腾讯云免费体验</a><br>
-<a href="https://cloud.tencent.com/act/pro/cps_3?fromSource=gwzcw.6688284.6688284.6688284&cps_key=ae3b8b6e55495d8bc53f2227ea0273d8" target="_blank">
+> <a href="https://cloud.tencent.com/act/pro/cps_3?fromSource=gwzcw.6688284.6688284.6688284&cps_key=ae3b8b6e55495d8bc53f2227ea0273d8" target="_blank">
 > 腾讯云优惠</a><br>
-<a href="https://www.aliyun.com/minisite/goods?userCode=8dt5pt0g&share_source=copy_link" target="_blank">阿里云优惠</a><br>
+> <a href="https://www.aliyun.com/minisite/goods?userCode=8dt5pt0g&share_source=copy_link" target="_blank">阿里云优惠</a>
 
-
+<br><br>
 详细视频教程：<br>
-<video src="https://www.bilibili.com/video/BV12B4y187da/" controls="controls" width="500" height="300">
-您的浏览器不支持播放该视频！</video><br>
-<video src="//player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" controls="controls" width="500" height="300">
-您的浏览器不支持播放该视频！</video>
+<iframe src="http://player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
+<iframe src="http://player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### Bot-Aiml
 
