@@ -29,7 +29,8 @@
 详细视频教程：<br>
 <iframe src="http://player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
 <iframe src="http://player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+<video src="http://player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" controls="controls" width="500" height="300">
+您的浏览器不支持HTML5</video>
 ### Bot-Aiml
 
     关键词回复模块
