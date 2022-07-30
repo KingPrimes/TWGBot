@@ -27,8 +27,8 @@
 
 <br><br>
 详细视频教程：<br>
-[![服务器选购与机器人部署教程](.gethub/1.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "服务器选购与机器人部署教程")
-[![Warframe机器人部署-更新补充](.gethub/2.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "Warframe机器人部署-更新补充")
+[![服务器选购与机器人部署教程](https://raw.githubusercontent.com/KingPrimes/TWGBot/TWGBot-Sqlite/.gethub/1.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "服务器选购与机器人部署教程")<br>
+[![Warframe机器人部署-更新补充](https://raw.githubusercontent.com/KingPrimes/TWGBot/TWGBot-Sqlite/.gethub/2.jpg)](https://www.bilibili.com/video/BV12B4y187da/ "Warframe机器人部署-更新补充")
 <br>
 ### Bot-Aiml
 
