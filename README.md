@@ -25,12 +25,12 @@
 > 腾讯云优惠</a><br>
 <a href="https://www.aliyun.com/minisite/goods?userCode=8dt5pt0g&share_source=copy_link" target="_blank">阿里云优惠</a><br>
 
->
-> 详细视频教程：<br>
-> <video src="https://www.bilibili.com/video/BV12B4y187da/" controls="controls" width="500" height="300">
-> 您的浏览器不支持播放该视频！</video>
-> <video src="https://www.bilibili.com/video/BV1DT411E7yT/" controls="controls" width="500" height="300">
-> 您的浏览器不支持播放该视频！</video>
+
+详细视频教程：<br>
+<video src="https://www.bilibili.com/video/BV12B4y187da/" controls="controls" width="500" height="300">
+您的浏览器不支持播放该视频！</video><br>
+<video src="//player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" controls="controls" width="500" height="300">
+您的浏览器不支持播放该视频！</video>
 
 ### Bot-Aiml
 
