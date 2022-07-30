@@ -1,5 +1,5 @@
 <div align="center">
-<img src = ".github/logo.png" width="280" height="280" alt="TWGBot"/><br>
+<img src = "https://raw.githubusercontent.com/KingPrimes/TWGBot/master/.github/logo.png" width="280" height="280" alt="TWGBot"/><br>
 项目编写于2020年8月12日<br>
 使用 <a href="https://github.com/MisakaTAT/Shiro" target="_blank">Shiro</a> OneBot协议的QQ机器人快速开发框架
 
@@ -27,10 +27,9 @@
 
 <br><br>
 详细视频教程：<br>
-<iframe src="http://player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
-<iframe src="http://player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<video src="http://player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" controls="controls" width="500" height="300">
-您的浏览器不支持HTML5</video>
+[![服务器选购与机器人部署教程](.gethub/1.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "服务器选购与机器人部署教程")
+[![Warframe机器人部署-更新补充](.gethub/2.jpg)](https://www.bilibili.com/video/BV1DT411E7yT/ "Warframe机器人部署-更新补充")
+<br>
 ### Bot-Aiml
 
     关键词回复模块
