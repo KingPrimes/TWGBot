@@ -27,9 +27,10 @@
 
 >
 > 详细视频教程：<br>
-> <iframe src="//player.bilibili.com/player.html?bvid=BV1DT411E7yT&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
-> <iframe src="//player.bilibili.com/player.html?bvid=BV12B4y187da&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
-> <iframe src="//player.bilibili.com/player.html?bvid=BV1cF411F7w5&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br>
+> <video src="https://www.bilibili.com/video/BV12B4y187da/" controls="controls" width="500" height="300">
+> 您的浏览器不支持播放该视频！</video>
+> <video src="https://www.bilibili.com/video/BV1DT411E7yT/" controls="controls" width="500" height="300">
+> 您的浏览器不支持播放该视频！</video>
 ### Bot-Aiml
 
     关键词回复模块
