@@ -671,6 +671,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return str != null && str.matches("[a-zA-z]+");
     }
 
+    /**
+     * 整数到中文大写
+     *
+     * @param src 整数参数
+     * @return 中文大写
+     */
     public static String int2chineseNum(int src) {
         final String[] num = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九"};
         final String[] unit = {"", "十", "百", "千", "万", "十", "百", "千", "亿", "十", "百", "千"};
@@ -706,6 +712,22 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         }
         return null;
     }
+
+    /**
+     * 正则表达式字符串替换
+     *
+     * @param str       字符串
+     * @param regex     正则表达式
+     * @param newString 新的替换字符串
+     * @return 返回替换后的字符串
+     */
+    public static String regReplace(String str, String regex, String newString) {
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(str);
+        return m.replaceAll(newString);
+    }
+
+
 
    /* public static String toJsonString(String json){
         json = json.replaceFirst("\"","");

@@ -211,7 +211,7 @@ public class MarketItemUtil {
      * 给管理员发送可能恶意使用指令的消息
      */
     private static void toErrMsg(@NotNull Bot bot, @NotNull GroupMessageEvent event) {
-        long admin = new LoadConfig().getAdmin();
+        long admin = LoadConfig.getAdmin();
         if (admin != 0)
             bot.sendPrivateMsg(admin, StringUtils.format("昵称:{}\n{}:在查询" + event.getRawMessage() + "时没有查询到物品\n群号:{}", PrivateAddApi.getPrivateNick(event.getUserId()), event.getUserId(), event.getGroupId()), false);
     }

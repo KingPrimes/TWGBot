@@ -204,4 +204,44 @@ public class FileUtils {
             }
         }
     }
+
+    /**
+     * 文件读取到字符串
+     *
+     * @param path 文件路径
+     * @return 文件内容 -字符串
+     * @throws IOException
+     */
+    public static String getFileString(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            return "";
+        }
+        byte[] b = new byte[0];
+        try {
+            FileInputStream inputStream = new FileInputStream(file);
+            int len = inputStream.available();
+            b = new byte[len];
+            inputStream.read(b);
+            inputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new String(b, StandardCharsets.UTF_8);
+    }
+
+    /**
+     * 判断目录是否存在 若不存在则创建目录
+     *
+     * @param path 路径
+     * @return 创建失败返回false
+     */
+    public static boolean isMkdirs(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            return file.mkdirs();
+        }
+        return true;
+    }
 }

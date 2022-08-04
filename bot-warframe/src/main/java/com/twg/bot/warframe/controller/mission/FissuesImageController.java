@@ -3,23 +3,21 @@ package com.twg.bot.warframe.controller.mission;
 
 import com.twg.bot.warframe.dao.FissureList;
 import com.twg.bot.warframe.dao.GlobalStates;
+import com.twg.bot.warframe.utils.HtmlToImage;
 import com.twg.bot.warframe.utils.WarframeUtils;
 import com.twg.common.core.redis.RedisCache;
 import com.twg.common.utils.Seat;
 import com.twg.common.utils.image.ImageUtils;
 import com.twg.common.utils.spring.SpringUtils;
 import com.twg.framework.interceptor.IgnoreAuth;
-import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.twg.common.utils.ColorEnum.*;
@@ -36,8 +34,9 @@ public class FissuesImageController {
     public void getImage(HttpServletResponse response) throws InterruptedException, IOException {
         response.setHeader("Content-Type", "image/png");
         FissureList fissureList = SpringUtils.getBean(WarframeUtils.class).getFissureList();
-
-        BufferedImage image = ImageUtils.getImage("/images/backimg.png");
+        ByteArrayOutputStream out = SpringUtils.getBean(HtmlToImage.class).fissuesImage(fissureList);
+        response.getOutputStream().write(out.toByteArray());
+        /*BufferedImage image = ImageUtils.getImage("/images/backimg.png");
         int x = 62, y = 80;
         List<Seat> seats = new ArrayList<>();
         seats.add(ImageUtils.getSeat("古纪(T1)", x, y, COLOR_MEIDIELV));
@@ -82,7 +81,7 @@ public class FissuesImageController {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         //ImageIO.write(ImageUtils.getBufferedImage(image, seats), "png", out);
         Thumbnails.of(ImageUtils.getBufferedImage(image, seats)).scale(1).outputQuality(1).outputFormat("png").toOutputStream(out);
-        response.getOutputStream().write(out.toByteArray());
+        response.getOutputStream().write(out.toByteArray());*/
 
     }
 

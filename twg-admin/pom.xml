@@ -62,7 +62,11 @@
             <groupId>com.twg</groupId>
             <artifactId>bot-image-togif</artifactId>
         </dependency>
-
+        <!--Image测试-->
+        <dependency>
+            <groupId>com.twg</groupId>
+            <artifactId>twg-image</artifactId>
+        </dependency>
         <!--JavaX 模块-->
         <dependency>
             <groupId>javax.xml.bind</groupId>

@@ -1,6 +1,5 @@
 package com.twg.bot.warframe.controller.mission;
 
-
 import com.twg.bot.warframe.dao.GlobalStates;
 import com.twg.bot.warframe.dao.SocketGlobalStates;
 import com.twg.bot.warframe.service.IWarframeTranslationService;

@@ -4,28 +4,23 @@ package com.twg.bot.warframe.controller.mission;
 import com.twg.bot.warframe.dao.GlobalStates;
 import com.twg.bot.warframe.dao.SocketGlobalStates;
 import com.twg.bot.warframe.service.IWarframeTranslationService;
+import com.twg.bot.warframe.utils.HtmlToImage;
 import com.twg.common.core.redis.RedisCache;
-import com.twg.common.utils.DateUtils;
-import com.twg.common.utils.Fonts;
 import com.twg.common.utils.image.ImageUtils;
 import com.twg.common.utils.image.combiner.ImageCombiner;
 import com.twg.common.utils.image.combiner.enums.OutputFormat;
+import com.twg.common.utils.spring.SpringUtils;
 import com.twg.framework.interceptor.IgnoreAuth;
-import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.util.Date;
-import java.util.Locale;
 
 import static com.twg.bot.enums.WarframeTypeEnum.REDIS_MISSION_KEY;
-import static com.twg.common.utils.ColorEnum.*;
 
 @RestController
 @RequestMapping("/warframe/mission")
@@ -46,7 +41,7 @@ public class AllCycleImageController {
                 .combine();
         SocketGlobalStates sgs = redisCache.getCacheObject(REDIS_MISSION_KEY.getType());
         GlobalStates globalState = sgs.getPacket().getData();
-        //地球
+        /*//地球
         GlobalStates.EarthCycle earthCycle = globalState.getEarthCycle();
         //夜灵平野
         GlobalStates.CetusCycle cetusCycle = globalState.getCetusCycle();
@@ -183,7 +178,10 @@ public class AllCycleImageController {
             response.getOutputStream().write(out.toByteArray());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
+
+        ByteArrayOutputStream out = SpringUtils.getBean(HtmlToImage.class).allCycleImage(globalState);
+        response.getOutputStream().write(out.toByteArray());
 
 
     }

@@ -1,20 +1,24 @@
 package com.twg.common.load;
 
 import com.twg.common.utils.StringUtils;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class LoadConfig {
 
     public static Properties prop = new Properties();
 
+    private static final String HTML_PATH = "./TWGBot-html";
+
     public static void initConfig() {
         try {
-            prop.load(new FileInputStream(System.getProperty("user.dir") + "/config.ini"));
+            prop.load(Files.newInputStream(Paths.get(System.getProperty("user.dir") + "/config.ini")));
         } catch (Exception ignored) {
         }
     }
@@ -26,7 +30,7 @@ public class LoadConfig {
     }
 
     //判断配置文件是否存在不存在则新建一个配置文件
-    public boolean WriteConfigFile() {
+    public static boolean WriteConfigFile() {
         //config
         File file = new File("./config.ini");
         if (!file.isFile()) {
@@ -42,7 +46,7 @@ public class LoadConfig {
         return file.isFile();
     }
 
-    public boolean WriteSqlite() {
+    public static boolean WriteSqlite() {
         File file = new File("./db/data.db3");
         if (!file.isFile()) {
             try {
@@ -60,5 +64,23 @@ public class LoadConfig {
         }
         return file.isFile();
     }
+
+    public static boolean initHtml() {
+        File file = new File(HTML_PATH);
+        if (!file.exists()) {
+            try {
+                Git.cloneRepository()
+                        .setURI("https://gitee.com/KingPrime/TWGBot-Html.git")
+                        .setDirectory(file)
+                        .call();
+                return true;
+            } catch (GitAPIException e) {
+                return false;
+            }
+
+        }
+        return file.exists();
+    }
+
 
 }

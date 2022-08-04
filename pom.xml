@@ -157,6 +157,11 @@
                 <version>${twg.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.twg</groupId>
+                <artifactId>twg-image</artifactId>
+                <version>${twg.version}</version>
+            </dependency>
             <!--Bot关键词回复模块-->
             <dependency>
                 <groupId>com.twg</groupId>
@@ -196,6 +201,19 @@
                 <version>${jsoup.version}</version>
             </dependency>
 
+            <!--HTML 渲染图片-->
+            <dependency>
+                <groupId>org.xhtmlrenderer</groupId>
+                <artifactId>flying-saucer-core</artifactId>
+                <version>9.1.22</version>
+            </dependency>
+
+            <!--操作Git 克隆仓库-->
+            <dependency>
+                <groupId>org.eclipse.jgit</groupId>
+                <artifactId>org.eclipse.jgit</artifactId>
+                <version>5.12.0.202106070339-r</version>
+            </dependency>
 
             <!--JavaX模块-->
             <dependency>
@@ -235,6 +253,7 @@
         <module>bot-warframe</module>
         <module>bot-aiml</module>
         <module>bot-image-togif</module>
+        <module>twg-image</module>
     </modules>
 
 
